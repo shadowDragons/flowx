@@ -64,11 +64,12 @@ export default function Hero() {
             }}
             whiteSpace="nowrap"
           >
-            XXXX
+            FlowX
           </Text>
         </Heading>
         <Text color={useColorModeValue('gray.500', 'gray.400')}>
-          描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述描述
+          我们为有需进行外包开发的客户朋友提供一个专业的开发团队 <br />
+          我们为客户提供高效的项目进度管理,高质量的项目成果以及最适合的开发者
         </Text>
         <Stack
           spacing={{ base: 4, sm: 6 }}
@@ -80,7 +81,7 @@ export default function Hero() {
               backgroundColor={useColorModeValue('white', 'black')}
               _hover={{ color: '#fff' }}
             >
-              <span className="tooltip">QQ</span>
+              <span className="tooltip">1005131326</span>
               <Box>
                 <QQIcon height={8} width={8} color="currentColor" />
               </Box>
@@ -90,7 +91,7 @@ export default function Hero() {
               backgroundColor={useColorModeValue('white', 'black')}
               _hover={{ color: '#fff' }}
             >
-              <span className="tooltip">微信</span>
+              <span className="tooltip">jandan1990</span>
               <Box>
                 <WechatIcon height={8} width={8} color="currentColor" />
               </Box>
@@ -100,7 +101,7 @@ export default function Hero() {
               backgroundColor={useColorModeValue('white', 'black')}
               _hover={{ color: '#fff' }}
             >
-              <span className="tooltip">Github</span>
+              <span className="tooltip">shadowDragons</span>
               <Box>
                 <GithubIcon height={8} width={8} color="currentColor" />
               </Box>

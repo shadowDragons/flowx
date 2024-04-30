@@ -55,7 +55,7 @@ const Home = () => {
                   <AiOutlineFundProjectionScreen size={24} />
                 </Box>
                 <Heading as="h1" size="md">
-                  标题
+                  我们的项目
                 </Heading>
               </HStack>
             </Box>
@@ -159,7 +159,7 @@ const Home = () => {
               <AiFillCustomerService size={40} />
             </Box>
             <Heading as="h2" size="md" fontWeight={600} fontSize="4xl">
-              标题
+              我们的服务
             </Heading>
           </Flex>
           <Service />

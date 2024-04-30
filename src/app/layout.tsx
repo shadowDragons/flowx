@@ -7,11 +7,11 @@ type RootLayoutProps = {
   children: React.ReactNode;
 };
 
-const APP_NAME = '示例网站';
+const APP_NAME = 'FlowX开发工作室';
 
 export const metadata: Metadata = {
   title: { default: APP_NAME, template: '%s | nextarter-chakra' },
-  description: 'Next.js + chakra-ui + TypeScript template',
+  description: '我们提供APP开发，微信开发、小程序开发、H5开发、网站开发等等',
   applicationName: APP_NAME,
   appleWebApp: {
     capable: true,
@@ -20,19 +20,6 @@ export const metadata: Metadata = {
   },
   formatDetection: {
     telephone: false,
-  },
-  openGraph: {
-    url: 'https://nextarter-chakra.sznm.dev',
-    title: 'nextarter-chakra',
-    description: 'Next.js + chakra-ui + TypeScript template',
-    images: {
-      url: 'https://og-image.sznm.dev/**nextarter-chakra**.sznm.dev.png?theme=dark&md=1&fontSize=125px&images=https%3A%2F%2Fsznm.dev%2Favataaars.svg&widths=250',
-      alt: 'nextarter-chakra.sznm.dev og-image',
-    },
-  },
-  twitter: {
-    creator: '@sozonome',
-    card: 'summary_large_image',
   },
 };
 

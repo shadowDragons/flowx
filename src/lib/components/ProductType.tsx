@@ -24,29 +24,29 @@ export default function ProductType() {
         </Flex>
         <Flex direction="column" justifyContent="space-around" height="400px">
           <Heading as="h2" size="md" py={3}>
-            标题
+            我们能做
           </Heading>
           <Text color={useColorModeValue('gray.500', 'gray.200')}>
-            描述描述描述描述描述描述描述描述描述描述描述描述描述
+            我们提供APP开发，微信开发、小程序开发、H5开发、网站开发等等
           </Text>
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} py={3}>
             <Box as="button" className="serviceButton">
-              <Box as="span">描述描述</Box>
+              <Box as="span">小程序定制</Box>
             </Box>
             <Box as="button" className="serviceButton">
-              <Box as="span">描述描述</Box>
+              <Box as="span">电子商城</Box>
             </Box>
             <Box as="button" className="serviceButton">
-              <Box as="span">描述描述</Box>
+              <Box as="span">企业管理系统</Box>
             </Box>
             <Box as="button" className="serviceButton">
-              <Box as="span">描述描述</Box>
+              <Box as="span">软件按需定制</Box>
             </Box>
             <Box as="button" className="serviceButton">
-              <Box as="span">描述描述</Box>
+              <Box as="span">服务器搭建</Box>
             </Box>
             <Box as="button" className="serviceButton">
-              <Box as="span">描述描述</Box>
+              <Box as="span">持续技术支持</Box>
             </Box>
           </SimpleGrid>
         </Flex>
