@@ -14,15 +14,11 @@ import { ProductTypeIcon } from './icons/ProductTypeIcon';
 export default function ProductType() {
   return (
     <Box>
-      <SimpleGrid
-        height="400px"
-        columns={{ base: 1, md: 2 }}
-        spacing={{ base: 10, md: 20 }}
-      >
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={{ base: 10, md: 20 }}>
         <Flex alignItems="center" justifyContent="center">
-          <ProductTypeIcon width="600px" height="600px" color="#F6AD55" />
+          <ProductTypeIcon width="full" height="full" color="#F6AD55" />
         </Flex>
-        <Flex direction="column" justifyContent="space-around" height="400px">
+        <Flex direction="column" justifyContent="space-around">
           <Heading as="h2" size="md" py={3}>
             我们能做
           </Heading>

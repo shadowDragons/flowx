@@ -6,7 +6,7 @@ export async function generateStaticParams() {
   );
 
   return projects.map((project: Project) => ({
-    id: project.id,
+    id: project.id.toString(),
   }));
 }
 

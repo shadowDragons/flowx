@@ -8,28 +8,13 @@ import {
   useColorModeValue,
   Box,
 } from '@chakra-ui/react';
-import type { CSSProperties } from 'react';
-
-import { Skills } from '~/lib/components/Skills';
 
 import { GithubIcon } from './icons/Github';
+import { Hexo } from './icons/Hexo';
 import { QQIcon } from './icons/QQ';
 import { WechatIcon } from './icons/Wechat';
 
 import '~/lib/styles/contactButton.css';
-import '~/lib/styles/skills.css';
-import '~/lib/styles/loader.css';
-
-interface CubeSpanProps {
-  style?: CSSProperties & {
-    '--i'?: number;
-  };
-  className?: string;
-}
-
-const CubeSpan = ({ style, className, ...rest }: CubeSpanProps) => {
-  return <span style={style} className={className} {...rest} />;
-};
 
 export default function Hero() {
   return (
@@ -108,7 +93,6 @@ export default function Hero() {
             </Box>
           </Box>
         </Stack>
-        <Skills />
       </Stack>
       <Flex
         flex={1}
@@ -117,15 +101,7 @@ export default function Hero() {
         position="relative"
         w="full"
       >
-        <div className="cube-loader">
-          <div className="cube-top" />
-          <div className="cube-wrapper">
-            <CubeSpan style={{ '--i': 0 }} className="cube-span" />
-            <CubeSpan style={{ '--i': 1 }} className="cube-span" />
-            <CubeSpan style={{ '--i': 2 }} className="cube-span" />
-            <CubeSpan style={{ '--i': 3 }} className="cube-span" />
-          </div>
-        </div>
+        <Hexo height="full" width="full" />
       </Flex>
     </Stack>
   );

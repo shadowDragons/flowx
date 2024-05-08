@@ -38,41 +38,7 @@ export default function Navbar() {
                   bg: useColorModeValue('black', 'white'),
                 }}
               >
-                菜单
-              </Box>
-              <Box
-                as="a"
-                className="menu_button"
-                href="#"
-                style={{ color: useColorModeValue('black', 'white') }}
-                _hover={{
-                  color: useColorModeValue('black', 'white'),
-                }}
-                _focus={{
-                  color: useColorModeValue('black', 'white'),
-                }}
-                _after={{
-                  bg: useColorModeValue('black', 'white'),
-                }}
-              >
-                菜单
-              </Box>
-              <Box
-                as="a"
-                className="menu_button"
-                href="#"
-                style={{ color: useColorModeValue('black', 'white') }}
-                _hover={{
-                  color: useColorModeValue('black', 'white'),
-                }}
-                _focus={{
-                  color: useColorModeValue('black', 'white'),
-                }}
-                _after={{
-                  bg: useColorModeValue('black', 'white'),
-                }}
-              >
-                菜单
+                项目列表
               </Box>
               <ThemeToggle />
             </HStack>

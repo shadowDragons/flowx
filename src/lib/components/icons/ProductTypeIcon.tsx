@@ -2,7 +2,7 @@ import type { IconProps } from '@chakra-ui/icon';
 import { Icon } from '@chakra-ui/icon';
 
 export const ProductTypeIcon = ({ color, height, width }: IconProps) => (
-  <Icon viewBox="0 0 1024 1024" height={height} width={width}>
+  <Icon viewBox="0 0 1024 512" height={height} width={width}>
     <path
       d="M191.22942,619.35948l-2.92,14.65c-.22,1.12-.45,2.26-.7,3.39a14.28772,14.28772,0,0,0-7.34.41,68.511,68.511,0,0,1,5.04,8.43c-1.84,5.67-4.54,10.91-9.06,14.7a22.71964,22.71964,0,0,1-21.95,3.86l.13-.58c-4.86-9.43-2.22-21.32,3.82-30.03a58.3846,58.3846,0,0,1,10.85-11.47c4.07995-3.4,8.49-6.45,12.86-9.46A5.99007,5.99007,0,0,1,191.22942,619.35948Z"
       transform="translate(-131.93432 -197.35206)"
