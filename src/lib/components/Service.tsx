@@ -3,7 +3,11 @@
 import { Box, Flex, Image, Text } from '@chakra-ui/react';
 
 import services from '../data/serviceData';
+
 import '~/lib/styles/serviceCard.css';
+import { motion } from 'framer-motion';
+
+import { fadeInUp } from '~/lib/components/motion/variants';
 
 export interface ServiceProps {
   heading: string;
@@ -39,11 +43,13 @@ export default function Service() {
       >
         {services.map((v) => {
           return (
-            <Card
-              heading={v.heading}
-              icon={v.icon}
-              description={v.description}
-            />
+            <motion.div variants={fadeInUp}>
+              <Card
+                heading={v.heading}
+                icon={v.icon}
+                description={v.description}
+              />
+            </motion.div>
           );
         })}
       </Flex>

@@ -1,21 +1,16 @@
 'use client';
 
-import {
-  Box,
-  Flex,
-  HStack,
-  Heading,
-  Text,
-  useColorModeValue,
-} from '@chakra-ui/react';
-import {
-  AiFillCustomerService,
-  AiOutlineFundProjectionScreen,
-} from 'react-icons/ai';
+import { Box, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
+import { motion } from 'framer-motion';
+import { AiFillCustomerService } from 'react-icons/ai';
 
 import Hero from '~/lib/components/Hero';
+import {
+  fadeInDown,
+  staggerTextContainer,
+} from '~/lib/components/motion/variants';
 import ProductType from '~/lib/components/ProductType';
-import ProjectItem from '~/lib/components/Project';
+import Project from '~/lib/components/Project';
 import Service from '~/lib/components/Service';
 
 import '~/lib/styles/moreButton.css';
@@ -47,7 +42,7 @@ const Home = () => {
           <ProductType />
         </Box>
 
-        <Box w="full" pl={10} pr={10} pt={100} paddingBottom={100}>
+        {/* <Box w="full" pl={10} pr={10} pt={100} paddingBottom={100}>
           <Flex justify="space-between" alignItems="center">
             <Box>
               <HStack spacing={2}>
@@ -144,6 +139,10 @@ const Home = () => {
               type="mobile"
             />
           </Flex>
+        </Box> */}
+
+        <Box w="full" pl={10} pr={10} pt={100} paddingBottom={100}>
+          <Project />
         </Box>
 
         <Box
@@ -154,15 +153,24 @@ const Home = () => {
           pt={100}
           paddingBottom={100}
         >
-          <Flex my={10} justifyContent="center" alignItems="center">
-            <Box marginRight={4}>
-              <AiFillCustomerService size={40} />
-            </Box>
-            <Heading as="h2" size="md" fontWeight={600} fontSize="4xl">
-              我们的服务
-            </Heading>
-          </Flex>
-          <Service />
+          <motion.div
+            variants={staggerTextContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: false, amount: 0.6 }}
+          >
+            <motion.div variants={fadeInDown}>
+              <Flex my={10} justifyContent="center" alignItems="center">
+                <Box marginRight={4}>
+                  <AiFillCustomerService size={40} />
+                </Box>
+                <Heading as="h2" size="md" fontWeight={600} fontSize="4xl">
+                  我们的服务
+                </Heading>
+              </Flex>
+            </motion.div>
+            <Service />
+          </motion.div>
         </Box>
       </Box>
     </Flex>
