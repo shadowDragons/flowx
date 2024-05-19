@@ -6,6 +6,7 @@ import {
   Heading,
   Tag,
   Text,
+  Tooltip,
   useColorModeValue,
 } from '@chakra-ui/react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
@@ -40,7 +41,21 @@ const items: Item[] = [
     img: '/pc-web.png',
     desc: 'asdf ',
     tags: ['aaa', 'bbb'],
-    skills: ['github', 'qq'],
+    skills: [
+      'laravel',
+      'antDesign',
+      'css',
+      'java',
+      'js',
+      'mysql',
+      'nestjs',
+      'nextjs',
+      'php',
+      'prisma',
+      'react',
+      'springboot',
+      'vue',
+    ],
   },
   {
     id: 2,
@@ -106,7 +121,11 @@ const Single: React.FC<{ item: Item }> = ({ item }) => {
             </Box>
             <Box marginBottom={2}>
               {item.skills.map((skill) => (
-                <SkillIcon height={5} width={5} skill={skill} />
+                <Tooltip label={skill}>
+                  <Box as="span" marginRight={2}>
+                    <SkillIcon height={5} width={5} skill={skill} />
+                  </Box>
+                </Tooltip>
               ))}
             </Box>
             <Button
