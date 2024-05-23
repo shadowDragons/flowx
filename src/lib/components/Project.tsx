@@ -10,14 +10,13 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
-import PropTypes, { arrayOf, string } from 'prop-types';
 import { useRef } from 'react';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 
 import '~/lib/styles/project.scss';
 import SkillIcon from './SkillsIcon';
 
-type Item = {
+interface Item {
   id: number;
   title: string;
   img: string;
@@ -26,7 +25,7 @@ type Item = {
   textclassname: string;
   tags: string[];
   skills: string[];
-};
+}
 
 const imageContainPc: string = 'imageContainer-pc';
 const imageContainMobile: string = 'imageContainer-mobile';
@@ -90,7 +89,7 @@ const items: Item[] = [
   },
 ];
 
-const Single: React.FC<{ item: Item }> = ({ item }) => {
+const Single = ({ item }: { item: Item }) => {
   const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -140,21 +139,6 @@ const Single: React.FC<{ item: Item }> = ({ item }) => {
       </Box>
     </Box>
   );
-};
-
-const ItemPropType = PropTypes.shape({
-  id: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  imgclassname: PropTypes.string.isRequired,
-  textclassname: PropTypes.string.isRequired,
-  desc: PropTypes.string.isRequired,
-  tags: arrayOf(string.isRequired).isRequired,
-  skills: arrayOf(string.isRequired).isRequired,
-});
-
-Single.propTypes = {
-  item: ItemPropType.isRequired,
 };
 
 const Project = () => {
