@@ -11,6 +11,13 @@ const Footer = () => {
           rel="noopener noreferrer"
         >
           flowx-studio.com
+        </Link>{' '}
+        <Link
+          href="https://beian.miit.gov.cn/"
+          isExternal
+          rel="noopener noreferrer"
+        >
+          粤ICP备2024253980号
         </Link>
       </Text>
     </Flex>

@@ -6,9 +6,7 @@ import {
   Text,
   useColorModeValue,
 } from '@chakra-ui/react';
-
 import '~/lib/styles/serviceButton.css';
-
 import { motion } from 'framer-motion';
 
 import { ProductTypeIcon } from './icons/ProductTypeIcon';

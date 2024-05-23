@@ -12,7 +12,15 @@ import { ReactIcon } from './icons/skill/React';
 import { SpringbootIcon } from './icons/skill/Springboot';
 import { VueIcon } from './icons/skill/Vue';
 
-export default function SkillIcon({ skill, width, height }) {
+export default function SkillIcon({
+  skill,
+  width,
+  height,
+}: {
+  skill: string;
+  width: number;
+  height: number;
+}) {
   switch (skill) {
     case 'antDesign':
       return <AntDesignIcon height={height} width={width} />;

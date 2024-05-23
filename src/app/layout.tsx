@@ -32,7 +32,7 @@ export const viewport: Viewport = {
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
     <html lang="en">
-      <body>
+      <body style={{ overflowX: 'hidden' }}>
         <Providers>
           <Layout>{children}</Layout>
         </Providers>

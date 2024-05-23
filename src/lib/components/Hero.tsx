@@ -16,6 +16,7 @@ import { QQIcon } from './icons/QQ';
 import { WechatIcon } from './icons/Wechat';
 import '~/lib/styles/contactButton.css';
 import '~/lib/styles/wave.css';
+import '~/lib/styles/hero.css';
 import { fadeInDown, fadeInLeft, staggerContainer } from './motion/variants';
 
 export default function Hero() {
@@ -115,15 +116,19 @@ export default function Hero() {
             </Stack>
           </motion.div>
         </Stack>
-
         <Flex
           flex={1}
           justify="center"
           align="center"
           position="relative"
           w="full"
+          h="full"
         >
-          <motion.div variants={fadeInLeft} style={{ width: '100%' }}>
+          <Box className="background2" width="100%" />
+          <motion.div
+            variants={fadeInLeft}
+            style={{ width: '100%', zIndex: 1 }}
+          >
             <Hexo height="full" width="full" />
           </motion.div>
         </Flex>

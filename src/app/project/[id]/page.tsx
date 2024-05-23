@@ -1,20 +1,18 @@
 import { Box } from '@chakra-ui/react';
 
 export async function generateStaticParams() {
-  const projects = await fetch('http://localhost:3100/api/project/list').then(
-    (res) => res.json()
+  const ids = await fetch('http://localhost:3100/api/project/ids').then((res) =>
+    res.json()
   );
-
-  return projects.map((project: Project) => ({
-    id: project.id.toString(),
+  return ids.data.map((id: Id) => ({
+    id: id.id.toString(),
   }));
 }
 
 async function getData(id: number) {
-  const res = await fetch(`http://localhost:3100/api/project/detail?id=${id}`);
+  const res = await fetch(`http://localhost:3100/api/project/detail/${id}`);
   // The return value is *not* serialized
   // You can return Date, Map, Set, etc.
-
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data');
@@ -23,14 +21,21 @@ async function getData(id: number) {
   return res.json();
 }
 
-interface Project {
+interface Id {
+  id: number;
+}
+
+interface Detail {
   id: number;
   title: string;
-  type: number;
   description: string;
+}
+
+interface Project {
+  data: Detail;
 }
 
 export default async function Home({ params }: { params: { id: number } }) {
   const project: Project = await getData(params.id);
-  return <Box>{project.title}</Box>;
+  return <Box>{project.data.title}</Box>;
 }

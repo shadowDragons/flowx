@@ -10,6 +10,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react';
 import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import PropTypes, { arrayOf, string } from 'prop-types';
 import { useRef } from 'react';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 
@@ -90,7 +91,7 @@ const items: Item[] = [
 ];
 
 const Single: React.FC<{ item: Item }> = ({ item }) => {
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -141,8 +142,23 @@ const Single: React.FC<{ item: Item }> = ({ item }) => {
   );
 };
 
+const ItemPropType = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  title: PropTypes.string.isRequired,
+  img: PropTypes.string.isRequired,
+  imgclassname: PropTypes.string.isRequired,
+  textclassname: PropTypes.string.isRequired,
+  desc: PropTypes.string.isRequired,
+  tags: arrayOf(string.isRequired).isRequired,
+  skills: arrayOf(string.isRequired).isRequired,
+});
+
+Single.propTypes = {
+  item: ItemPropType.isRequired,
+};
+
 const Project = () => {
-  const ref = useRef();
+  const ref = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -207,5 +223,4 @@ const Project = () => {
     </div>
   );
 };
-
 export default Project;
