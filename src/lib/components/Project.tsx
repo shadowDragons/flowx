@@ -141,6 +141,46 @@ const Single = ({ item }: { item: Item }) => {
   );
 };
 
+const Single2 = ({ item }: { item: Item }) => {
+  return (
+    <Flex>
+      <Flex flex={1}>
+        <img src={item.img} alt="" />
+      </Flex>
+      <Flex flex={1}>
+        <Heading as="h2" marginBottom={2}>
+          {item.title}
+        </Heading>
+        <Box as="p" marginBottom={2}>
+          {item.desc}
+        </Box>
+        <Box marginBottom={2}>
+          {item.tags.map((tag) => (
+            <Tag colorScheme="teal" marginRight={2}>
+              {tag}
+            </Tag>
+          ))}
+        </Box>
+        <Box marginBottom={2}>
+          {item.skills.map((skill) => (
+            <Tooltip label={skill}>
+              <Box as="span" marginRight={2}>
+                <SkillIcon height={5} width={5} skill={skill} />
+              </Box>
+            </Tooltip>
+          ))}
+        </Box>
+        <Button
+          backgroundColor="orange.300"
+          color={useColorModeValue('white', 'black')}
+        >
+          查看详情
+        </Button>
+      </Flex>
+    </Flex>
+  );
+};
+
 const Project = () => {
   const ref = useRef<HTMLDivElement>(null);
 
@@ -202,7 +242,7 @@ const Project = () => {
         <motion.div style={{ scaleX }} className="progressBar" />
       </div>
       {items.map((item) => (
-        <Single item={item} key={item.id} />
+        <Single2 item={item} key={item.id} />
       ))}
     </div>
   );
