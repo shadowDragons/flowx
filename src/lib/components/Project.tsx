@@ -38,8 +38,8 @@ const items: Item[] = [
     imgclassname: imageContainPc,
     textclassname: textContainPc,
     title: 'React Commerce',
-    img: '/pc-web.png',
-    desc: 'asdf ',
+    img: '/project/TradeZen/show2.png',
+    desc: 'asdfsdf asdfasdf asdfsadfasdf asdfasdf asdf asdf asdfasdfasdf asdf fasdf as ',
     tags: ['aaa', 'bbb'],
     skills: [
       'laravel',
@@ -62,121 +62,92 @@ const items: Item[] = [
     title: 'Next.js Blog',
     imgclassname: imageContainMobile,
     textclassname: textContainMobile,
-    img: '/mobile-web.png',
-    desc: 'sadfasdf',
+    img: '/project/xiaolu/show2.png',
+    desc: 'asdfsdf asdfasdf asdfsadfasdf asdfasdf asdf asdf asdfasdfasdf asdf fasdf as',
     tags: ['aaa'],
     skills: ['github'],
-  },
-  {
-    id: 3,
-    title: 'Vanilla JS App',
-    imgclassname: imageContainPc,
-    textclassname: textContainPc,
-    img: 'https://images.pexels.com/photos/6894528/pexels-photo-6894528.jpeg?auto=compress&cs=tinysrgb&w=1600&lazy=load',
-    desc: 'sdfasdfasdf',
-    tags: ['aaa'],
-    skills: ['github'],
-  },
-  {
-    id: 4,
-    title: 'Music App',
-    imgclassname: imageContainPc,
-    textclassname: textContainPc,
-    img: 'https://images.pexels.com/photos/18540208/pexels-photo-18540208/free-photo-of-wood-landscape-water-hill.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2',
-    desc: 'sdfasdf',
-    tags: ['aaa'],
-    skills: ['bbb'],
   },
 ];
 
-const Single = ({ item }: { item: Item }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [-300, 300]);
-
+const Single1 = ({ item }: { item: Item }) => {
   return (
-    <Box as="section">
-      <Box className="container">
-        <Box className="wrapper">
-          <Box className={item.imgclassname} ref={ref}>
-            <img src={item.img} alt="" />
-          </Box>
-          <motion.div className={item.textclassname} style={{ y }}>
-            <Heading as="h2" marginBottom={2}>
-              {item.title}
-            </Heading>
-            <Box as="p" marginBottom={2}>
-              {item.desc}
-            </Box>
-            <Box marginBottom={2}>
-              {item.tags.map((tag) => (
-                <Tag colorScheme="teal" marginRight={2}>
-                  {tag}
-                </Tag>
-              ))}
-            </Box>
-            <Box marginBottom={2}>
-              {item.skills.map((skill) => (
-                <Tooltip label={skill}>
-                  <Box as="span" marginRight={2}>
-                    <SkillIcon height={5} width={5} skill={skill} />
-                  </Box>
-                </Tooltip>
-              ))}
-            </Box>
-            <Button
-              backgroundColor="orange.300"
-              color={useColorModeValue('white', 'black')}
-            >
-              查看详情
-            </Button>
-          </motion.div>
-        </Box>
+    <Flex marginTop={10}>
+      <Box flex={3}>
+        <img src={item.img} alt="" />
       </Box>
-    </Box>
+      <Flex
+        flex={2}
+        flexDirection="column"
+        justifyContent="center"
+        alignContent="center"
+        width="full"
+      >
+        <Box width="80%">
+          <Heading as="h2" marginBottom={3}>
+            {item.title}
+          </Heading>
+          <Box as="p" fontSize={20} marginBottom={3}>
+            {item.desc}
+          </Box>
+          <Box marginBottom={3}>
+            {item.tags.map((tag) => (
+              <Tag colorScheme="teal" marginRight={2} fontSize={20}>
+                {tag}
+              </Tag>
+            ))}
+          </Box>
+          <Box marginBottom={3}>
+            {item.skills.map((skill) => (
+              <Tooltip label={skill}>
+                <Box as="span" marginRight={2}>
+                  <SkillIcon height={6} width={9} skill={skill} />
+                </Box>
+              </Tooltip>
+            ))}
+          </Box>
+        </Box>
+      </Flex>
+    </Flex>
   );
 };
 
 const Single2 = ({ item }: { item: Item }) => {
   return (
-    <Flex>
-      <Flex flex={1}>
+    <Flex marginTop={10}>
+      <Flex
+        flex={2}
+        flexDirection="column"
+        justifyContent="center"
+        alignContent="center"
+      >
+        <Box width="80%">
+          <Heading as="h2" marginBottom={3}>
+            {item.title}
+          </Heading>
+          <Box as="p" fontSize={20} marginBottom={3}>
+            {item.desc}
+          </Box>
+          <Box marginBottom={3}>
+            {item.tags.map((tag) => (
+              <Tag colorScheme="teal" marginRight={2} fontSize={20}>
+                {tag}
+              </Tag>
+            ))}
+          </Box>
+          <Box marginBottom={3}>
+            {item.skills.map((skill) => (
+              <Tooltip label={skill}>
+                <Box as="span" marginRight={2}>
+                  <SkillIcon height={6} width={9} skill={skill} />
+                </Box>
+              </Tooltip>
+            ))}
+          </Box>
+        </Box>
+      </Flex>
+      <Box flex={3}>
         <img src={item.img} alt="" />
-      </Flex>
-      <Flex flex={1}>
-        <Heading as="h2" marginBottom={2}>
-          {item.title}
-        </Heading>
-        <Box as="p" marginBottom={2}>
-          {item.desc}
-        </Box>
-        <Box marginBottom={2}>
-          {item.tags.map((tag) => (
-            <Tag colorScheme="teal" marginRight={2}>
-              {tag}
-            </Tag>
-          ))}
-        </Box>
-        <Box marginBottom={2}>
-          {item.skills.map((skill) => (
-            <Tooltip label={skill}>
-              <Box as="span" marginRight={2}>
-                <SkillIcon height={5} width={5} skill={skill} />
-              </Box>
-            </Tooltip>
-          ))}
-        </Box>
-        <Button
-          backgroundColor="orange.300"
-          color={useColorModeValue('white', 'black')}
-        >
-          查看详情
-        </Button>
-      </Flex>
+      </Box>
     </Flex>
   );
 };
@@ -242,7 +213,10 @@ const Project = () => {
         <motion.div style={{ scaleX }} className="progressBar" />
       </div>
       {items.map((item) => (
-        <Single2 item={item} key={item.id} />
+        <Box>
+          <Single1 item={item} key={item.id} />
+          <Single2 item={item} key={item.id} />
+        </Box>
       ))}
     </div>
   );
