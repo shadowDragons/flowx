@@ -1,6 +1,5 @@
 import {
   Box,
-  Button,
   Flex,
   HStack,
   Heading,
@@ -8,10 +7,17 @@ import {
   Text,
   Tooltip,
   useColorModeValue,
+  useMediaQuery,
 } from '@chakra-ui/react';
-import { motion, useScroll, useSpring, useTransform } from 'framer-motion';
+import { motion, useScroll, useSpring } from 'framer-motion';
 import { useRef } from 'react';
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
+
+import {
+  fadeInLeft,
+  fadeInRight,
+  staggerTextContainer,
+} from './motion/variants';
 
 import '~/lib/styles/project.scss';
 import SkillIcon from './SkillsIcon';
@@ -63,17 +69,35 @@ const items: Item[] = [
     imgclassname: imageContainMobile,
     textclassname: textContainMobile,
     img: '/project/xiaolu/show2.png',
-    desc: 'asdfsdf asdfasdf asdfsadfasdf asdfasdf asdf asdf asdfasdfasdf asdf fasdf as',
-    tags: ['aaa'],
-    skills: ['github'],
+    desc: 'asdfsdf asdfasdf asdfsadfasdf asdfasdf asdf asdf asdfasdfasdf asdf fasdf as ',
+    tags: ['aaa', 'bbb'],
+    skills: [
+      'laravel',
+      'antDesign',
+      'css',
+      'java',
+      'js',
+      'mysql',
+      'nestjs',
+      'nextjs',
+      'php',
+      'prisma',
+      'react',
+      'springboot',
+      'vue',
+    ],
   },
 ];
 
-const Single1 = ({ item }: { item: Item }) => {
+const Single = ({ position, item }: { position: string; item: Item }) => {
+  const [isMobile] = useMediaQuery(['(max-width: 768px)']);
+
   return (
-    <Flex marginTop={10}>
-      <Box flex={3}>
-        <img src={item.img} alt="" />
+    <Flex marginTop={10} direction={{ base: 'column', md: 'row' }}>
+      <Box flex={3} order={position === 'right' || isMobile ? 1 : 2}>
+        <motion.div variants={fadeInLeft} style={{ width: '100%', zIndex: 1 }}>
+          <img src={item.img} alt="" />
+        </motion.div>
       </Box>
       <Flex
         flex={2}
@@ -81,8 +105,9 @@ const Single1 = ({ item }: { item: Item }) => {
         justifyContent="center"
         alignContent="center"
         width="full"
+        order={position === 'left' || isMobile ? 1 : 2}
       >
-        <Box width="80%">
+        <Box marginLeft={{ base: 10, md: position === 'left' ? 20 : 0 }}>
           <Heading as="h2" marginBottom={3}>
             {item.title}
           </Heading>
@@ -107,47 +132,6 @@ const Single1 = ({ item }: { item: Item }) => {
           </Box>
         </Box>
       </Flex>
-    </Flex>
-  );
-};
-
-const Single2 = ({ item }: { item: Item }) => {
-  return (
-    <Flex marginTop={10}>
-      <Flex
-        flex={2}
-        flexDirection="column"
-        justifyContent="center"
-        alignContent="center"
-      >
-        <Box width="80%">
-          <Heading as="h2" marginBottom={3}>
-            {item.title}
-          </Heading>
-          <Box as="p" fontSize={20} marginBottom={3}>
-            {item.desc}
-          </Box>
-          <Box marginBottom={3}>
-            {item.tags.map((tag) => (
-              <Tag colorScheme="teal" marginRight={2} fontSize={20}>
-                {tag}
-              </Tag>
-            ))}
-          </Box>
-          <Box marginBottom={3}>
-            {item.skills.map((skill) => (
-              <Tooltip label={skill}>
-                <Box as="span" marginRight={2}>
-                  <SkillIcon height={6} width={9} skill={skill} />
-                </Box>
-              </Tooltip>
-            ))}
-          </Box>
-        </Box>
-      </Flex>
-      <Box flex={3}>
-        <img src={item.img} alt="" />
-      </Box>
     </Flex>
   );
 };
@@ -212,12 +196,19 @@ const Project = () => {
         </Flex>
         <motion.div style={{ scaleX }} className="progressBar" />
       </div>
-      {items.map((item) => (
-        <Box>
-          <Single1 item={item} key={item.id} />
-          <Single2 item={item} key={item.id} />
-        </Box>
-      ))}
+      <motion.div
+        variants={staggerTextContainer}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ once: false, amount: 0.6 }}
+      >
+        {items.map((item) => (
+          <Box>
+            <Single position="left" item={item} key={item.id} />
+            <Single position="right" item={item} key={item.id} />
+          </Box>
+        ))}
+      </motion.div>
     </div>
   );
 };
