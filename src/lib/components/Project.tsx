@@ -9,18 +9,18 @@ import {
   useColorModeValue,
   useMediaQuery,
 } from '@chakra-ui/react';
-import { motion, useScroll, useSpring } from 'framer-motion';
-import { useRef } from 'react';
-import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
+import { motion } from 'framer-motion';
 
+import MotionBox from './motion/Box';
 import {
   fadeInLeft,
   fadeInRight,
   staggerTextContainer,
 } from './motion/variants';
-
 import '~/lib/styles/project.scss';
 import SkillIcon from './SkillsIcon';
+
+import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 
 interface Item {
   id: number;
@@ -94,11 +94,12 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
 
   return (
     <Flex marginTop={10} direction={{ base: 'column', md: 'row' }}>
-      <Box flex={3} order={position === 'right' || isMobile ? 1 : 2}>
-        <motion.div variants={fadeInLeft} style={{ width: '100%', zIndex: 1 }}>
+      <Flex flex={3} order={position === 'right' || isMobile ? 1 : 2}>
+        <MotionBox variants={fadeInRight}>
           <img src={item.img} alt="" />
-        </motion.div>
-      </Box>
+        </MotionBox>
+      </Flex>
+
       <Flex
         flex={2}
         flexDirection="column"
@@ -107,50 +108,40 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
         width="full"
         order={position === 'left' || isMobile ? 1 : 2}
       >
-        <Box marginLeft={{ base: 10, md: position === 'left' ? 20 : 0 }}>
-          <Heading as="h2" marginBottom={3}>
-            {item.title}
-          </Heading>
-          <Box as="p" fontSize={20} marginBottom={3}>
-            {item.desc}
+        <MotionBox variants={fadeInLeft}>
+          <Box marginLeft={{ base: 10, md: position === 'left' ? 20 : 0 }}>
+            <Heading as="h2" marginBottom={3}>
+              {item.title}
+            </Heading>
+            <Box as="p" fontSize={20} marginBottom={3}>
+              {item.desc}
+            </Box>
+            <Box marginBottom={3}>
+              {item.tags.map((tag) => (
+                <Tag colorScheme="teal" marginRight={2} fontSize={20}>
+                  {tag}
+                </Tag>
+              ))}
+            </Box>
+            <Box marginBottom={3}>
+              {item.skills.map((skill) => (
+                <Tooltip label={skill}>
+                  <Box as="span" marginRight={2}>
+                    <SkillIcon height={6} width={9} skill={skill} />
+                  </Box>
+                </Tooltip>
+              ))}
+            </Box>
           </Box>
-          <Box marginBottom={3}>
-            {item.tags.map((tag) => (
-              <Tag colorScheme="teal" marginRight={2} fontSize={20}>
-                {tag}
-              </Tag>
-            ))}
-          </Box>
-          <Box marginBottom={3}>
-            {item.skills.map((skill) => (
-              <Tooltip label={skill}>
-                <Box as="span" marginRight={2}>
-                  <SkillIcon height={6} width={9} skill={skill} />
-                </Box>
-              </Tooltip>
-            ))}
-          </Box>
-        </Box>
+        </MotionBox>
       </Flex>
     </Flex>
   );
 };
 
 const Project = () => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ['end end', 'start start'],
-  });
-
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-  });
-
   return (
-    <div className="portfolio" ref={ref}>
+    <div className="portfolio">
       <div className="progress">
         <Flex justify="space-between" alignItems="center">
           <Box>
@@ -194,21 +185,29 @@ const Project = () => {
             </Flex>
           </Box>
         </Flex>
-        <motion.div style={{ scaleX }} className="progressBar" />
+        <Box className="progressBar" />
       </div>
-      <motion.div
-        variants={staggerTextContainer}
-        initial="initial"
-        whileInView="animate"
-        viewport={{ once: false, amount: 0.6 }}
-      >
-        {items.map((item) => (
-          <Box>
+
+      {items.map((item) => (
+        <Box>
+          <motion.div
+            variants={staggerTextContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: false, amount: 0.6 }}
+          >
             <Single position="left" item={item} key={item.id} />
+          </motion.div>
+          <motion.div
+            variants={staggerTextContainer}
+            initial="initial"
+            whileInView="animate"
+            viewport={{ once: false, amount: 0.6 }}
+          >
             <Single position="right" item={item} key={item.id} />
-          </Box>
-        ))}
-      </motion.div>
+          </motion.div>
+        </Box>
+      ))}
     </div>
   );
 };
