@@ -1,5 +1,6 @@
 import {
   Box,
+  Button,
   Flex,
   HStack,
   Heading,
@@ -21,11 +22,15 @@ import '~/lib/styles/project.scss';
 import SkillIcon from './SkillsIcon';
 
 import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
+import { ViewIcon } from '@chakra-ui/icons';
+
+import CustomImageViewer from './ImageViewer';
 
 interface Item {
   id: number;
   title: string;
   img: string;
+  imgs: string;
   desc: string;
   imgclassname: string;
   textclassname: string;
@@ -45,6 +50,7 @@ const items: Item[] = [
     textclassname: textContainPc,
     title: 'React Commerce',
     img: '/project/TradeZen/show2.png',
+    imgs: ['/project/xiaolu/show1.png', '/project/TradeZen/show3.png'],
     desc: 'asdfsdf asdfasdf asdfsadfasdf asdfasdf asdf asdf asdfasdfasdf asdf fasdf as ',
     tags: ['aaa', 'bbb'],
     skills: [
@@ -69,6 +75,7 @@ const items: Item[] = [
     imgclassname: imageContainMobile,
     textclassname: textContainMobile,
     img: '/project/xiaolu/show2.png',
+    imgs: ['/project/xiaolu/show1.png', '/project/TradeZen/show3.png'],
     desc: 'asdfsdf asdfasdf asdfsadfasdf asdfasdf asdf asdf asdfasdfasdf asdf fasdf as ',
     tags: ['aaa', 'bbb'],
     skills: [
@@ -91,7 +98,11 @@ const items: Item[] = [
 
 const Single = ({ position, item }: { position: string; item: Item }) => {
   const [isMobile] = useMediaQuery(['(max-width: 768px)']);
-
+  const trigger = ({ open }) => (
+    <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>
+      查看更多图片
+    </Button>
+  );
   return (
     <Flex marginTop={10} direction={{ base: 'column', md: 'row' }}>
       <Flex flex={3} order={position === 'right' || isMobile ? 1 : 2}>
@@ -132,6 +143,10 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
                 </Tooltip>
               ))}
             </Box>
+            <Box>
+              <CustomImageViewer trigger={trigger} images={item.imgs} />
+            </Box>
+            <Box />
           </Box>
         </MotionBox>
       </Flex>
