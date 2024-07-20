@@ -87,7 +87,7 @@ export default function Hero() {
                   backgroundColor={useColorModeValue('white', 'black')}
                   _hover={{ color: '#fff' }}
                 >
-                  <span className="tooltip">1005131326</span>
+                  <span className="tooltip">1735089854</span>
                   <Box>
                     <QQIcon height={8} width={8} color="currentColor" />
                   </Box>
@@ -97,12 +97,12 @@ export default function Hero() {
                   backgroundColor={useColorModeValue('white', 'black')}
                   _hover={{ color: '#fff' }}
                 >
-                  <span className="tooltip">jandan1990</span>
+                  <span className="tooltip">flowx_develop</span>
                   <Box>
                     <WechatIcon height={8} width={8} color="currentColor" />
                   </Box>
                 </Box>
-                <Box
+                {/* <Box
                   className="icon github"
                   backgroundColor={useColorModeValue('white', 'black')}
                   _hover={{ color: '#fff' }}
@@ -111,7 +111,7 @@ export default function Hero() {
                   <Box>
                     <GithubIcon height={8} width={8} color="currentColor" />
                   </Box>
-                </Box>
+                </Box> */}
               </Box>
             </Stack>
           </motion.div>

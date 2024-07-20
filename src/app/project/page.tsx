@@ -170,7 +170,7 @@ const CartItem = ({ item }: { item: Item }) => {
 
 export default function Home() {
   return (
-    <Box pl={10} pr={10}>
+    <Box pl={{ base: 2, md: 10 }} pr={{ base: 2, md: 10 }}>
       {/* <Flex height={100} alignItems="center">
         <Heading as="h1">111</Heading>
       </Flex> */}
