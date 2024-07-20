@@ -108,13 +108,15 @@ const items: Item[] = [
   },
 ];
 
+const TriggerButton = ({ open }: { open: () => void }) => (
+  <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>
+    查看更多图片
+  </Button>
+);
+
 const Single = ({ position, item }: { position: string; item: Item }) => {
   const [isMobile] = useMediaQuery(['(max-width: 768px)']);
-  const trigger = ({ open }) => (
-    <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>
-      查看更多图片
-    </Button>
-  );
+
   return (
     <Flex marginTop={10} direction={{ base: 'column', md: 'row' }}>
       <Flex flex={3} order={position === 'right' || isMobile ? 1 : 2}>
@@ -156,7 +158,9 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
               ))}
             </Box>
             <Box>
-              <CustomImageViewer trigger={trigger} images={item.imgs} />
+              <CustomImageViewer images={item.imgs}>
+                {({ open }) => <TriggerButton open={open} />}
+              </CustomImageViewer>
             </Box>
             <Box />
           </Box>

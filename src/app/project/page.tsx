@@ -8,7 +8,6 @@ import {
   CardBody,
   CardFooter,
   Divider,
-  Flex,
   Heading,
   Image,
   SimpleGrid,
@@ -124,13 +123,13 @@ const items: Item[] = [
   },
 ];
 
-const CartItem = ({ item }: { item: Item }) => {
-  const trigger = ({ open }) => (
-    <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>
-      查看更多图片
-    </Button>
-  );
+const TriggerButton = ({ open }: { open: () => void }) => (
+  <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>
+    查看更多图片
+  </Button>
+);
 
+const CartItem = ({ item }: { item: Item }) => {
   return (
     <Card width={400}>
       <CardBody>
@@ -162,7 +161,9 @@ const CartItem = ({ item }: { item: Item }) => {
       </CardBody>
       <Divider />
       <CardFooter>
-        <CustomImageViewer trigger={trigger} images={item.imgs} />
+        <CustomImageViewer images={item.imgs}>
+          {({ open }) => <TriggerButton open={open} />}
+        </CustomImageViewer>
       </CardFooter>
     </Card>
   );

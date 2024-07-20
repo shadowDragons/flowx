@@ -1,27 +1,25 @@
 'use client';
 
-import { Box } from '@chakra-ui/react';
-import { BrowseIcon } from 'tdesign-icons-react';
-import { Image, ImageViewer, Space } from 'tdesign-react';
+import type { ReactNode } from 'react';
+import { ImageViewer as TDesignImageViewer, Space } from 'tdesign-react';
 import 'tdesign-react/dist/tdesign.css';
-import type { TNode } from 'tdesign-react/es/common';
-// 全局引入所有组件样式代码
-const imgH = '/project/xiaolu/show1.png';
-const imgV = '/project/TradeZen/show3.png';
-const img = '/project/TradeZen/show2.png';
+
+interface CustomImageViewerProps {
+  images: string[];
+  children: (args: { open: () => void }) => ReactNode;
+}
 
 export default function CustomImageViewer({
   images,
-  trigger,
-}: {
-  images: string[];
-  trigger: TNode;
-}) {
-  // const images = [img, imgV, imgH];
-
+  children,
+}: CustomImageViewerProps) {
   return (
     <Space breakLine size={16}>
-      <ImageViewer trigger={trigger} images={images} title="11" />
+      <TDesignImageViewer
+        trigger={children}
+        images={images}
+        title="Image Viewer"
+      />
     </Space>
   );
 }

@@ -10,7 +10,6 @@ import {
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 
-import { GithubIcon } from './icons/Github';
 import { Hexo } from './icons/Hexo';
 import { QQIcon } from './icons/QQ';
 import { WechatIcon } from './icons/Wechat';
