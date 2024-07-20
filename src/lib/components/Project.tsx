@@ -48,7 +48,7 @@ const items: Item[] = [
     id: 1,
     imgclassname: imageContainPc,
     textclassname: textContainPc,
-    title: 'React Commerce',
+    title: '校园社交圈子',
     img: '/project/TradeZen/show2.png',
     imgs: ['/project/xiaolu/show1.png', '/project/TradeZen/show3.png'],
     desc: 'asdfsdf asdfasdf asdfsadfasdf asdfasdf asdf asdf asdfasdfasdf asdf fasdf as ',
