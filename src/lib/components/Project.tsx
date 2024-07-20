@@ -30,7 +30,7 @@ interface Item {
   id: number;
   title: string;
   img: string;
-  imgs: string;
+  imgs: string[];
   desc: string;
   imgclassname: string;
   textclassname: string;
@@ -49,50 +49,62 @@ const items: Item[] = [
     imgclassname: imageContainPc,
     textclassname: textContainPc,
     title: '校园社交圈子',
-    img: '/project/TradeZen/show2.png',
-    imgs: ['/project/xiaolu/show1.png', '/project/TradeZen/show3.png'],
-    desc: 'asdfsdf asdfasdf asdfsadfasdf asdfasdf asdf asdf asdfasdfasdf asdf fasdf as ',
-    tags: ['aaa', 'bbb'],
-    skills: [
-      'laravel',
-      'antDesign',
-      'css',
-      'java',
-      'js',
-      'mysql',
-      'nestjs',
-      'nextjs',
-      'php',
-      'prisma',
-      'react',
-      'springboot',
-      'vue',
+    img: '/project/xiaoyuanSocial/showIndex.png',
+    imgs: [
+      '/project/xiaoyuanSocial/detail1.png',
+      '/project/xiaoyuanSocial/detail2.png',
+      '/project/xiaoyuanSocial/detail3.png',
+      '/project/xiaoyuanSocial/detail4.png',
     ],
+    desc: '校园圈子论坛系统，结合ThinkPHP6、uniapp、Vue3和Element技术，为私域浏览和校园集市提供高效解决方案。',
+    tags: [],
+    skills: ['thinkphp', 'uniapp', 'mysql'],
   },
   {
     id: 2,
-    title: 'Next.js Blog',
+    title: '掌上点餐',
     imgclassname: imageContainMobile,
     textclassname: textContainMobile,
-    img: '/project/xiaolu/show2.png',
-    imgs: ['/project/xiaolu/show1.png', '/project/TradeZen/show3.png'],
-    desc: 'asdfsdf asdfasdf asdfsadfasdf asdfasdf asdf asdf asdfasdfasdf asdf fasdf as ',
-    tags: ['aaa', 'bbb'],
-    skills: [
-      'laravel',
-      'antDesign',
-      'css',
-      'java',
-      'js',
-      'mysql',
-      'nestjs',
-      'nextjs',
-      'php',
-      'prisma',
-      'react',
-      'springboot',
-      'vue',
+    img: '/project/handShop/showIndex.png',
+    imgs: [
+      '/project/handShop/detail1.png',
+      '/project/handShop/detail2.png',
+      '/project/handShop/detail3.png',
+      '/project/handShop/detail4.png',
     ],
+    desc: '外卖点餐系统，采用uniapp进行多端开发，使用MySQL、Spring Boot、Redis和RabbitMQ技术，实现高效的点餐、支付和配送功能。',
+    tags: [],
+    skills: ['uniapp', 'mysql', 'springboot', 'redis', 'rabbitmq'],
+  },
+  {
+    id: 3,
+    title: '外贸商城TradeZen',
+    imgclassname: imageContainMobile,
+    textclassname: textContainMobile,
+    img: '/project/tradeZenMall/showIndex.png',
+    imgs: [
+      '/project/tradeZenMall/detail1.png',
+      '/project/tradeZenMall/detail2.png',
+    ],
+    desc: '外贸商城系统，采用Next.js、Nest.js和Ant Design Pro技术栈，提供高效的前后端开发框架和优秀的用户界面，提升用户购物体验和系统性能。',
+    tags: [],
+    skills: ['nestjs', 'nextjs', 'antDesign', 'mysql'],
+  },
+  {
+    id: 4,
+    title: '迅达商城',
+    imgclassname: imageContainMobile,
+    textclassname: textContainMobile,
+    img: '/project/xundaMall/showIndex.png',
+    imgs: [
+      '/project/xundaMall/detail1.png',
+      '/project/xundaMall/detail2.png',
+      '/project/xundaMall/detail3.png',
+      '/project/xundaMall/detail4.png',
+    ],
+    desc: 'PC和移动端商城系统，采用ThinkPHP、uniapp、Node.js、Redis技术栈，提供跨平台开发和高效的数据缓存与处理，确保流畅的用户体验和稳定的性能。',
+    tags: [],
+    skills: ['nestjs', 'nextjs', 'antDesign', 'mysql'],
   },
 ];
 
@@ -203,23 +215,15 @@ const Project = () => {
         <Box className="progressBar" />
       </div>
 
-      {items.map((item) => (
-        <Box>
+      {items.map((item, index) => (
+        <Box key={item.id}>
           <motion.div
             variants={staggerTextContainer}
             initial="initial"
             whileInView="animate"
             viewport={{ once: false, amount: 0.6 }}
           >
-            <Single position="left" item={item} key={item.id} />
-          </motion.div>
-          <motion.div
-            variants={staggerTextContainer}
-            initial="initial"
-            whileInView="animate"
-            viewport={{ once: false, amount: 0.6 }}
-          >
-            <Single position="right" item={item} key={item.id} />
+            <Single position={index % 2 === 0 ? 'right' : 'left'} item={item} />
           </motion.div>
         </Box>
       ))}
