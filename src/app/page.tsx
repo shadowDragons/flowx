@@ -4,6 +4,7 @@ import { Box, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { AiFillCustomerService } from 'react-icons/ai';
 
+import '../../i18n';
 import Hero from '~/lib/components/Hero';
 import {
   fadeInDown,

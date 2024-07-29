@@ -9,6 +9,7 @@ import {
   Box,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import { Hexo } from './icons/Hexo';
 import { QQIcon } from './icons/QQ';
@@ -19,6 +20,7 @@ import '~/lib/styles/hero.css';
 import { fadeInDown, fadeInLeft, staggerContainer } from './motion/variants';
 
 export default function Hero() {
+  const { t } = useTranslation();
   return (
     <motion.div
       variants={staggerContainer}
@@ -42,6 +44,7 @@ export default function Hero() {
             <motion.div variants={fadeInDown} style={{ marginBottom: '10px' }}>
               <Text as="span" color="orange.300" marginRight={2}>
                 您好
+                {t('hello')}
                 <span className="wave">👋🏻</span>
               </Text>
             </motion.div>

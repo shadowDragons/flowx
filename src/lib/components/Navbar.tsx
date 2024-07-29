@@ -6,6 +6,7 @@ import { Logo } from './icons/Logo';
 import ThemeToggle from './ThemeToggle';
 
 import '~/lib/styles/menu.css';
+import LanguageSelector from './LanguageSelector';
 
 export default function Navbar() {
   return (
@@ -41,6 +42,7 @@ export default function Navbar() {
                 项目列表
               </Box>
               <ThemeToggle />
+              <LanguageSelector />
             </HStack>
           </HStack>
         </Flex>
