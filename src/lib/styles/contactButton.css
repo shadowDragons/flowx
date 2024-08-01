@@ -74,6 +74,12 @@
   background-color: #55acee;
 }
 
+.contractWrap .email:hover,
+.contractWrap .email:hover .tooltip,
+.contractWrap .email:hover .tooltip::before {
+  background-color: #55acee;
+}
+
 .contractWrap .wechat:hover,
 .contractWrap .wechat:hover .tooltip,
 .contractWrap .wechat:hover .tooltip::before {

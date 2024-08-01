@@ -5,6 +5,8 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
   en: {
     translation: {
+      copy: 'copy',
+      copyDesc: 'has been copied to clipboard',
       name: '0xBen Full Stack Developer',
       metaData:
         'Full Stack Developer, freelance projects, APP development, website construction, mini-program development, H5 development',
@@ -30,7 +32,8 @@ const resources = {
   },
   zh: {
     translation: {
-      // 中文部分保持不变
+      copy: '复制',
+      copyDesc: '已经复制到剪切板',
       name: '0xBen 全栈开发工程师',
       metaData: '全栈开发工程师，接单，APP开发，网站建设，小程序开发、H5开发',
       hero: '你好',

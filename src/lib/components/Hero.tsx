@@ -7,6 +7,7 @@ import {
   Text,
   useColorModeValue,
   Box,
+  useToast,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
@@ -18,9 +19,45 @@ import '~/lib/styles/wave.css';
 import '~/lib/styles/hero.css';
 import { fadeInDown, fadeInLeft, staggerContainer } from './motion/variants';
 import { TwitterIcon } from './icons/Twitter';
+import { EmailIcon } from '@chakra-ui/icons';
 
 export default function Hero() {
   const { t } = useTranslation();
+  const toast = useToast();
+
+  const handleCopy = (text: string) => {
+    navigator.clipboard.writeText(text).then(() => {
+      toast({
+        title: t('copy'),
+        description: `${text} ${t('copyDesc')}`,
+        status: 'success',
+        duration: 2000,
+        isClosable: true,
+      });
+    });
+  };
+
+  const ContactIcon = ({
+    className,
+    tooltip,
+    children,
+  }: {
+    className: string;
+    tooltip: string;
+    children: React.ReactNode;
+  }) => (
+    <Box
+      className={`icon ${className}`}
+      backgroundColor={useColorModeValue('white', 'black')}
+      _hover={{ color: '#fff' }}
+      onClick={() => handleCopy(tooltip)}
+      cursor="pointer"
+    >
+      <span className="tooltip">{tooltip}</span>
+      <Box>{children}</Box>
+    </Box>
+  );
+
   return (
     <motion.div
       variants={staggerContainer}
@@ -84,36 +121,18 @@ export default function Hero() {
               direction={{ base: 'column', sm: 'row' }}
             >
               <Box className="contractWrap">
-                <Box
-                  className="icon qq"
-                  backgroundColor={useColorModeValue('white', 'black')}
-                  _hover={{ color: '#fff' }}
+                <ContactIcon className="qq" tooltip="1735089854">
+                  <QQIcon height={8} width={8} color="currentColor" />
+                </ContactIcon>
+                <ContactIcon className="twitter" tooltip="shadow06368306">
+                  <TwitterIcon height={8} width={8} color="currentColor" />
+                </ContactIcon>
+                <ContactIcon
+                  className="email"
+                  tooltip="shadowdragon4399@gmail.com"
                 >
-                  <span className="tooltip">1735089854</span>
-                  <Box>
-                    <QQIcon height={8} width={8} color="currentColor" />
-                  </Box>
-                </Box>
-                <Box
-                  className="icon twitter"
-                  backgroundColor={useColorModeValue('white', 'black')}
-                  _hover={{ color: '#fff' }}
-                >
-                  <span className="tooltip">shadow06368306</span>
-                  <Box>
-                    <TwitterIcon height={8} width={8} color="currentColor" />
-                  </Box>
-                </Box>
-                {/* <Box
-                  className="icon github"
-                  backgroundColor={useColorModeValue('white', 'black')}
-                  _hover={{ color: '#fff' }}
-                >
-                  <span className="tooltip">shadowDragons</span>
-                  <Box>
-                    <GithubIcon height={8} width={8} color="currentColor" />
-                  </Box>
-                </Box> */}
+                  <EmailIcon height={8} width={8} color="currentColor" />
+                </ContactIcon>
               </Box>
             </Stack>
           </motion.div>
