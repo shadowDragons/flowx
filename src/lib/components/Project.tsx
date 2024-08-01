@@ -177,15 +177,15 @@ const languageItems: Map<string, Item[]> = new Map([
   ['en', enItems],
 ]);
 
-const TriggerButton = ({ open }: { open: () => void }) => (
+const TriggerButton = ({ open, text }: { open: () => void; text: string }) => (
   <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>
-    查看更多图片
+    {text}
   </Button>
 );
 
 const Single = ({ position, item }: { position: string; item: Item }) => {
   const [isMobile] = useMediaQuery(['(max-width: 768px)']);
-
+  const { t } = useTranslation();
   return (
     <Flex marginTop={10} direction={{ base: 'column', md: 'row' }}>
       <Flex flex={3} order={position === 'right' || isMobile ? 1 : 2}>
@@ -228,7 +228,9 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
             </Box> */}
             <Box>
               <CustomImageViewer images={item.imgs}>
-                {({ open }) => <TriggerButton open={open} />}
+                {({ open }) => (
+                  <TriggerButton open={open} text={t('showMorePics')} />
+                )}
               </CustomImageViewer>
             </Box>
             <Box />

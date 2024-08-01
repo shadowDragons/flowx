@@ -5,6 +5,9 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
   en: {
     translation: {
+      name: '0xBen Full Stack Developer',
+      metaData:
+        'Full Stack Developer, freelance projects, APP development, website construction, mini-program development, H5 development',
       hello: 'Hello',
       heroIm: 'I am',
       projectList: 'Project List',
@@ -28,6 +31,8 @@ const resources = {
   zh: {
     translation: {
       // 中文部分保持不变
+      name: '0xBen 全栈开发工程师',
+      metaData: '全栈开发工程师，接单，APP开发，网站建设，小程序开发、H5开发',
       hero: '你好',
       heroIm: '我是',
       projectList: '项目列表',

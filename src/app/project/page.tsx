@@ -218,13 +218,14 @@ const languageItems: Map<string, Item[]> = new Map([
   ['en', enItems],
 ]);
 
-const TriggerButton = ({ open }: { open: () => void }) => (
+const TriggerButton = ({ open, text }: { open: () => void; text: string }) => (
   <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>
-    查看更多图片
+    {text}
   </Button>
 );
 
 const CartItem = ({ item }: { item: Item }) => {
+  const { t } = useTranslation();
   return (
     <Card width={400}>
       <CardBody>
@@ -257,7 +258,7 @@ const CartItem = ({ item }: { item: Item }) => {
       <Divider />
       <CardFooter>
         <CustomImageViewer images={item.imgs}>
-          {({ open }) => <TriggerButton open={open} />}
+          {({ open }) => <TriggerButton open={open} text={t('showMorePics')} />}
         </CustomImageViewer>
       </CardFooter>
     </Card>
