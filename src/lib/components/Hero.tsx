@@ -80,7 +80,7 @@ export default function Hero() {
           >
             <motion.div variants={fadeInDown} style={{ marginBottom: '10px' }}>
               <Text as="span" color="orange.300" marginRight={2}>
-                {t('heroHello')}
+                {t('hello')}
                 <span className="wave">👋🏻</span>
               </Text>
 

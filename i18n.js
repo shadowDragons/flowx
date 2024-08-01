@@ -36,7 +36,7 @@ const resources = {
       copyDesc: '已经复制到剪切板',
       name: '0xBen 全栈开发工程师',
       metaData: '全栈开发工程师，接单，APP开发，网站建设，小程序开发、H5开发',
-      hero: '你好',
+      hello: '你好',
       heroIm: '我是',
       projectList: '项目列表',
       heroDesc:
