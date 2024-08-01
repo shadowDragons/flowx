@@ -12,19 +12,20 @@ export default function Navbar() {
   return (
     <Box>
       <Flex h={16} alignItems="center" justifyContent="space-between">
-        <HStack alignItems="center" height={10} width={100}>
-          <Box>
+        <HStack alignItems="center">
+          {/* <Box h={40} w={40} borderRadius="50%" overflow="hidden">
             <Logo
-              height="100%"
-              width="100%"
+              height={40}
+              width={40}
               color={useColorModeValue('black', 'white')}
             />
-          </Box>
+          </Box> */}
         </HStack>
         <Flex h={16} justifyContent="space-between">
           <HStack spacing={8} alignItems="center">
             <HStack as="nav" spacing={4} display={{ base: 'none', md: 'flex' }}>
               <Box
+                w={40}
                 as="a"
                 className="menu_button"
                 href="#"

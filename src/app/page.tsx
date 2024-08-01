@@ -33,6 +33,9 @@ const Home = () => {
       </Box>
 
       <Box w="full">
+        <Box w="full" pl={10} pr={10} pt={100} paddingBottom={100}>
+          <Project />
+        </Box>
         <Box
           pl={10}
           pr={10}
@@ -43,11 +46,7 @@ const Home = () => {
           <ProductType />
         </Box>
 
-        <Box w="full" pl={10} pr={10} pt={100} paddingBottom={100}>
-          <Project />
-        </Box>
-
-        <Box
+        {/* <Box
           w="full"
           bg={useColorModeValue('gray.50', 'gray.700')}
           pl={10}
@@ -73,7 +72,7 @@ const Home = () => {
             </motion.div>
             <Service />
           </motion.div>
-        </Box>
+        </Box> */}
       </Box>
     </Flex>
   );

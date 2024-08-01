@@ -68,6 +68,12 @@
   background-color: #68a5e1;
 }
 
+.contractWrap .twitter:hover,
+.contractWrap .twitter:hover .tooltip,
+.contractWrap .twitter:hover .tooltip::before {
+  background-color: #55acee;
+}
+
 .contractWrap .wechat:hover,
 .contractWrap .wechat:hover .tooltip,
 .contractWrap .wechat:hover .tooltip::before {

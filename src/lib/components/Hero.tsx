@@ -13,11 +13,11 @@ import { useTranslation } from 'react-i18next';
 
 import { Hexo } from './icons/Hexo';
 import { QQIcon } from './icons/QQ';
-import { WechatIcon } from './icons/Wechat';
 import '~/lib/styles/contactButton.css';
 import '~/lib/styles/wave.css';
 import '~/lib/styles/hero.css';
 import { fadeInDown, fadeInLeft, staggerContainer } from './motion/variants';
+import { TwitterIcon } from './icons/Twitter';
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -43,14 +43,12 @@ export default function Hero() {
           >
             <motion.div variants={fadeInDown} style={{ marginBottom: '10px' }}>
               <Text as="span" color="orange.300" marginRight={2}>
-                您好
-                {t('hello')}
+                你好
                 <span className="wave">👋🏻</span>
               </Text>
-            </motion.div>
-            <motion.div variants={fadeInDown}>
+
               <Text as="span" color="orange.300" marginRight={2}>
-                我们是
+                我是
               </Text>
               <Text
                 as="span"
@@ -67,14 +65,16 @@ export default function Hero() {
                 }}
                 whiteSpace="nowrap"
               >
-                FlowX
+                0xBen
               </Text>
             </motion.div>
           </Heading>
           <motion.div variants={fadeInDown}>
-            <Text color={useColorModeValue('gray.500', 'gray.400')}>
-              我们为有需进行外包开发的客户朋友提供一个专业的开发团队 <br />
-              我们为客户提供高效的项目进度管理,高质量的项目成果以及最适合的开发者
+            <Text
+              fontSize={20}
+              color={useColorModeValue('gray.500', 'gray.400')}
+            >
+              一名全栈开发工程师，拥有10多年工作经验，我可以为您提供网站APP建设，同时也欢迎有志同道合的小伙伴一起交流学习
             </Text>
           </motion.div>
 
@@ -95,13 +95,13 @@ export default function Hero() {
                   </Box>
                 </Box>
                 <Box
-                  className="icon wechat"
+                  className="icon twitter"
                   backgroundColor={useColorModeValue('white', 'black')}
                   _hover={{ color: '#fff' }}
                 >
-                  <span className="tooltip">flowx_develop</span>
+                  <span className="tooltip">shadow06368306</span>
                   <Box>
-                    <WechatIcon height={8} width={8} color="currentColor" />
+                    <TwitterIcon height={8} width={8} color="currentColor" />
                   </Box>
                 </Box>
                 {/* <Box
