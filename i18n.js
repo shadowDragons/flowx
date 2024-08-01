@@ -5,13 +5,30 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 const resources = {
   en: {
     translation: {
-      hello: 'hello',
-      projectList: 'projects',
+      hello: 'Hello',
+      heroIm: 'I am',
+      projectList: 'Project List',
+      heroDesc:
+        'A full-stack developer with over 10 years of experience. I can provide website and APP development services. I also welcome like-minded partners to exchange ideas and learn together.',
+      ourProject: 'Our Projects',
+      showMore: 'Show More',
+      showMorePics: 'View More Pictures',
+      icando: 'What I Can Do',
+      icandoDetail:
+        'Provide APP development, WeChat development, Mini Program development, H5 development, website development, etc.',
+      icandoMini: 'Mini Program Customization',
+      icandoShop: 'E-commerce Platform',
+      icandoCms: 'Enterprise Management System',
+      icandoSoft: 'Custom Software Development',
+      icandoServer: 'Server Setup',
+      icandoSupport: 'Ongoing Technical Support',
+      projectList: 'Projects',
     },
   },
   zh: {
     translation: {
-      heroHello: '你好',
+      // 中文部分保持不变
+      hero: '你好',
       heroIm: '我是',
       projectList: '项目列表',
       heroDesc:

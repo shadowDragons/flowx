@@ -108,7 +108,74 @@ const zhItems: Item[] = [
     skills: ['nestjs', 'nextjs', 'antDesign', 'mysql'],
   },
 ];
-const languageItems: Map<string, Item[]> = new Map([['zh', zhItems]]);
+const enItems: Item[] = [
+  {
+    id: 1,
+    imgclassname: imageContainPc,
+    textclassname: textContainPc,
+    title: 'Campus Social Circle',
+    img: '/project/xiaoyuanSocial/showIndex.png',
+    imgs: [
+      '/project/xiaoyuanSocial/detail1.png',
+      '/project/xiaoyuanSocial/detail2.png',
+      '/project/xiaoyuanSocial/detail3.png',
+      '/project/xiaoyuanSocial/detail4.png',
+    ],
+    desc: 'A campus circle forum system, combining ThinkPHP6, uniapp, Vue3, and Element technologies to provide efficient solutions for private browsing and campus marketplaces.',
+    tags: [],
+    skills: ['thinkphp', 'uniapp', 'mysql'],
+  },
+  {
+    id: 2,
+    title: 'Mobile Ordering',
+    imgclassname: imageContainMobile,
+    textclassname: textContainMobile,
+    img: '/project/handShop/showIndex.png',
+    imgs: [
+      '/project/handShop/detail1.png',
+      '/project/handShop/detail2.png',
+      '/project/handShop/detail3.png',
+      '/project/handShop/detail4.png',
+    ],
+    desc: 'A takeaway ordering system developed using uniapp for multi-platform support, utilizing MySQL, Spring Boot, Redis, and RabbitMQ technologies to achieve efficient ordering, payment, and delivery functions.',
+    tags: [],
+    skills: ['uniapp', 'mysql', 'springboot', 'redis', 'rabbitmq'],
+  },
+  {
+    id: 3,
+    title: 'TradeZen - Foreign Trade Mall',
+    imgclassname: imageContainMobile,
+    textclassname: textContainMobile,
+    img: '/project/tradeZenMall/showIndex.png',
+    imgs: [
+      '/project/tradeZenMall/detail1.png',
+      '/project/tradeZenMall/detail2.png',
+    ],
+    desc: 'A foreign trade e-commerce system using Next.js, Nest.js, and Ant Design Pro technology stack, providing efficient front-end and back-end development frameworks and excellent user interface to enhance shopping experience and system performance.',
+    tags: [],
+    skills: ['nestjs', 'nextjs', 'antDesign', 'mysql'],
+  },
+  {
+    id: 4,
+    title: 'Xunda Mall',
+    imgclassname: imageContainMobile,
+    textclassname: textContainMobile,
+    img: '/project/xundaMall/showIndex.png',
+    imgs: [
+      '/project/xundaMall/detail1.png',
+      '/project/xundaMall/detail2.png',
+      '/project/xundaMall/detail3.png',
+      '/project/xundaMall/detail4.png',
+    ],
+    desc: 'A PC and mobile e-commerce system using ThinkPHP, uniapp, Node.js, and Redis technology stack, offering cross-platform development and efficient data caching and processing to ensure smooth user experience and stable performance.',
+    tags: [],
+    skills: ['nestjs', 'nextjs', 'antDesign', 'mysql'],
+  },
+];
+const languageItems: Map<string, Item[]> = new Map([
+  ['zh', zhItems],
+  ['en', enItems],
+]);
 
 const TriggerButton = ({ open }: { open: () => void }) => (
   <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>

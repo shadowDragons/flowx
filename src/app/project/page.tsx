@@ -20,6 +20,7 @@ import {
 import CustomImageViewer from '~/lib/components/ImageViewer';
 import SkillIcon from '~/lib/components/SkillsIcon';
 import 'tdesign-react/dist/tdesign.css';
+import { useTranslation } from 'react-i18next';
 
 interface Item {
   id: number;
@@ -30,8 +31,98 @@ interface Item {
   tags: string[];
   skills: string[];
 }
-
-const items: Item[] = [
+const enItems: Item[] = [
+  {
+    id: 1,
+    title: 'Campus Social Circle',
+    img: '/project/xiaoyuanSocial/showList.png',
+    imgs: [
+      '/project/xiaoyuanSocial/detail1.png',
+      '/project/xiaoyuanSocial/detail2.png',
+      '/project/xiaoyuanSocial/detail3.png',
+      '/project/xiaoyuanSocial/detail4.png',
+    ],
+    desc: 'A campus circle forum system, combining ThinkPHP6, uniapp, Vue3, and Element technologies to provide efficient solutions for private browsing and campus marketplaces.',
+    tags: [],
+    skills: ['thinkphp', 'uniapp', 'mysql'],
+  },
+  {
+    id: 2,
+    title: 'Mobile Ordering',
+    img: '/project/handShop/showList.png',
+    imgs: [
+      '/project/handShop/detail1.png',
+      '/project/handShop/detail2.png',
+      '/project/handShop/detail3.png',
+      '/project/handShop/detail4.png',
+    ],
+    desc: 'A takeaway ordering system developed using uniapp for multi-platform support, utilizing MySQL, Spring Boot, Redis, and RabbitMQ technologies to achieve efficient ordering, payment, and delivery functions.',
+    tags: [],
+    skills: ['uniapp', 'mysql', 'springboot', 'redis', 'rabbitmq'],
+  },
+  {
+    id: 3,
+    title: 'TradeZen - Foreign Trade Mall',
+    img: '/project/tradeZenMall/showList.png',
+    imgs: [
+      '/project/tradeZenMall/detail1.png',
+      '/project/tradeZenMall/detail2.png',
+    ],
+    desc: 'A foreign trade e-commerce system using Next.js, Nest.js, and Ant Design Pro technology stack, providing efficient front-end and back-end development frameworks and excellent user interface to enhance shopping experience and system performance.',
+    tags: [],
+    skills: ['nestjs', 'nextjs', 'antDesign', 'mysql'],
+  },
+  {
+    id: 4,
+    title: 'Xunda Mall',
+    img: '/project/xundaMall/showList.png',
+    imgs: [
+      '/project/xundaMall/detail1.png',
+      '/project/xundaMall/detail2.png',
+      '/project/xundaMall/detail3.png',
+      '/project/xundaMall/detail4.png',
+    ],
+    desc: 'A PC and mobile e-commerce system using ThinkPHP, uniapp, Node.js, and Redis technology stack, offering cross-platform development and efficient data caching and processing to ensure smooth user experience and stable performance.',
+    tags: [],
+    skills: ['nestjs', 'nextjs', 'antDesign', 'mysql'],
+  },
+  {
+    id: 5,
+    title: 'Xiaolu New Products Mall',
+    img: '/project/xiaoluMall/showList.png',
+    imgs: [
+      '/project/xiaoluMall/detail1.png',
+      '/project/xiaoluMall/detail2.png',
+      '/project/xiaoluMall/detail3.png',
+      '/project/xiaoluMall/detail4.png',
+    ],
+    desc: 'A WeChat Mini Program mall system, using the uniapp technology stack to achieve cross-platform development, providing convenient product display, shopping cart, payment, and order management functions, ensuring a smooth shopping experience for users across various platforms.',
+    tags: [],
+    skills: ['uniapp'],
+  },
+  {
+    id: 6,
+    title: 'Student Grade Management System',
+    img: '/project/chengjiManager/showList.png',
+    imgs: [
+      '/project/chengjiManager/detail1.png',
+      '/project/chengjiManager/detail2.png',
+    ],
+    desc: 'A student grade management system using Vue front-end framework and Spring Boot back-end framework, implementing user-friendly interface design and efficient data management and processing, ensuring accurate recording and management of student grade information.',
+    tags: [],
+    skills: ['springboot', 'vue'],
+  },
+  {
+    id: 7,
+    title: 'Tools Navigation Site',
+    img: '/project/toolsSite/showList.png',
+    imgs: ['/project/toolsSite/detail1.png'],
+    desc: 'A practical tools navigation site developed based on Flutter technology, providing cross-platform support and an elegant user interface, allowing users to quickly access various practical tools.',
+    tags: [],
+    skills: ['flutter'],
+  },
+];
+const zhItems: Item[] = [
   {
     id: 1,
     title: '校园社交圈子',
@@ -122,6 +213,10 @@ const items: Item[] = [
     skills: ['flutter'],
   },
 ];
+const languageItems: Map<string, Item[]> = new Map([
+  ['zh', zhItems],
+  ['en', enItems],
+]);
 
 const TriggerButton = ({ open }: { open: () => void }) => (
   <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>
@@ -170,15 +265,12 @@ const CartItem = ({ item }: { item: Item }) => {
 };
 
 export default function Home() {
+  const { i18n } = useTranslation();
+  const items: Item[] | undefined = languageItems?.get(i18n.language);
   return (
     <Box pl={{ base: 2, md: 10 }} pr={{ base: 2, md: 10 }}>
-      {/* <Flex height={100} alignItems="center">
-        <Heading as="h1">111</Heading>
-      </Flex> */}
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={100}>
-        {items.map((item) => (
-          <CartItem item={item} />
-        ))}
+        {items?.map((item) => <CartItem item={item} />)}
       </SimpleGrid>
     </Box>
   );
