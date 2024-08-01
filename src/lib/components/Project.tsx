@@ -25,6 +25,7 @@ import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 import { ViewIcon } from '@chakra-ui/icons';
 
 import CustomImageViewer from './ImageViewer';
+import { useTranslation } from 'react-i18next';
 
 interface Item {
   id: number;
@@ -43,7 +44,7 @@ const imageContainMobile: string = 'imageContainer-mobile';
 const textContainPc: string = 'imageContainer-pc';
 const textContainMobile: string = 'imageContainer-mobile';
 
-const items: Item[] = [
+const zhItems: Item[] = [
   {
     id: 1,
     imgclassname: imageContainPc,
@@ -107,6 +108,7 @@ const items: Item[] = [
     skills: ['nestjs', 'nextjs', 'antDesign', 'mysql'],
   },
 ];
+const languageItems: Map<string, Item[]> = new Map([['zh', zhItems]]);
 
 const TriggerButton = ({ open }: { open: () => void }) => (
   <Button onClick={open} flex="1" variant="ghost" leftIcon={<ViewIcon />}>
@@ -171,6 +173,9 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
 };
 
 const Project = () => {
+  const { t, i18n } = useTranslation();
+  const items: Item[] | undefined = languageItems?.get(i18n.language);
+
   return (
     <div className="portfolio">
       <div className="progress">
@@ -188,7 +193,7 @@ const Project = () => {
                 size="md"
                 color={useColorModeValue('black', 'white')}
               >
-                我们的项目
+                {t('ourProject')}
               </Heading>
             </HStack>
           </Box>
@@ -198,7 +203,7 @@ const Project = () => {
                 className="catText"
                 color={useColorModeValue('black', 'white')}
               >
-                查看更多
+                {t('showMore')}
               </Text>
               <svg
                 className="icon"
@@ -219,7 +224,7 @@ const Project = () => {
         <Box className="progressBar" />
       </div>
 
-      {items.map((item, index) => (
+      {items?.map((item, index) => (
         <Box key={item.id}>
           <motion.div
             variants={staggerTextContainer}

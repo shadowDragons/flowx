@@ -7,8 +7,10 @@ import ThemeToggle from './ThemeToggle';
 
 import '~/lib/styles/menu.css';
 import LanguageSelector from './LanguageSelector';
+import { useTranslation } from 'react-i18next';
 
 export default function Navbar() {
+  const { t } = useTranslation();
   return (
     <Box>
       <Flex h={16} alignItems="center" justifyContent="space-between">
@@ -40,7 +42,7 @@ export default function Navbar() {
                   bg: useColorModeValue('black', 'white'),
                 }}
               >
-                <Link href="/project">项目列表</Link>
+                <Link href="/project">{t('projectList')}</Link>
               </Box>
               <ThemeToggle />
               <LanguageSelector />

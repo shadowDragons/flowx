@@ -11,6 +11,7 @@ import { motion } from 'framer-motion';
 
 import { ProductTypeIcon } from './icons/ProductTypeIcon';
 import { fadeInLeft, fadeInRight } from './motion/variants';
+import { useTranslation } from 'react-i18next';
 
 export const staggerTextContainer = {
   initial: {},
@@ -23,6 +24,7 @@ export const staggerTextContainer = {
 };
 
 export default function ProductType() {
+  const { t } = useTranslation();
   return (
     <Box>
       <motion.div
@@ -41,42 +43,42 @@ export default function ProductType() {
           <Flex direction="column" justifyContent="space-around">
             <motion.div variants={fadeInLeft}>
               <Heading as="h2" size="md" py={3}>
-                我们能做
+                {t('icando')}
               </Heading>
               <Text color={useColorModeValue('gray.500', 'gray.200')}>
-                我们提供APP开发，微信开发、小程序开发、H5开发、网站开发等等
+                {t('icandoDetail')}
               </Text>
             </motion.div>
 
             <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10} py={3}>
               <motion.div variants={fadeInLeft}>
                 <Box as="button" className="serviceButton" width="100%">
-                  <Box as="span">小程序定制</Box>
+                  <Box as="span">{t('icandoMini')}</Box>
                 </Box>
               </motion.div>
               <motion.div variants={fadeInLeft}>
                 <Box as="button" className="serviceButton" width="100%">
-                  <Box as="span">电子商城</Box>
+                  <Box as="span">{t('icandoShop')}</Box>
                 </Box>
               </motion.div>
               <motion.div variants={fadeInLeft}>
                 <Box as="button" className="serviceButton" width="100%">
-                  <Box as="span">企业管理系统</Box>
+                  <Box as="span">{t('icandoCms')}</Box>
                 </Box>
               </motion.div>
               <motion.div variants={fadeInLeft}>
                 <Box as="button" className="serviceButton" width="100%">
-                  <Box as="span">软件按需定制</Box>
+                  <Box as="span">{t('icandoSoft')}</Box>
                 </Box>
               </motion.div>
               <motion.div variants={fadeInLeft}>
                 <Box as="button" className="serviceButton" width="100%">
-                  <Box as="span">服务器搭建</Box>
+                  <Box as="span">{t('icandoServer')}</Box>
                 </Box>
               </motion.div>
               <motion.div variants={fadeInLeft}>
                 <Box as="button" className="serviceButton" width="100%">
-                  <Box as="span">持续技术支持</Box>
+                  <Box as="span">{t('icandoSupport')}</Box>
                 </Box>
               </motion.div>
             </SimpleGrid>

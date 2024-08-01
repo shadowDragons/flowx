@@ -43,12 +43,12 @@ export default function Hero() {
           >
             <motion.div variants={fadeInDown} style={{ marginBottom: '10px' }}>
               <Text as="span" color="orange.300" marginRight={2}>
-                你好
+                {t('heroHello')}
                 <span className="wave">👋🏻</span>
               </Text>
 
               <Text as="span" color="orange.300" marginRight={2}>
-                我是
+                {t('heroIm')}
               </Text>
               <Text
                 as="span"
@@ -74,7 +74,7 @@ export default function Hero() {
               fontSize={20}
               color={useColorModeValue('gray.500', 'gray.400')}
             >
-              一名全栈开发工程师，拥有10多年工作经验，我可以为您提供网站APP建设，同时也欢迎有志同道合的小伙伴一起交流学习
+              {t('heroDesc')}
             </Text>
           </motion.div>
 

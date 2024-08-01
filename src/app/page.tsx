@@ -15,8 +15,10 @@ import Project from '~/lib/components/Project';
 import Service from '~/lib/components/Service';
 
 import '~/lib/styles/moreButton.css';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t } = useTranslation();
   return (
     <Flex
       direction="column"
