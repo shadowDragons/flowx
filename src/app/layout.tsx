@@ -7,11 +7,12 @@ type RootLayoutProps = {
   children: React.ReactNode;
 };
 
-const APP_NAME = '0xBen 全栈开发工程师';
+const APP_NAME = '0xBen Full Stack Developer | 全栈开发工程师';
 
 export const metadata: Metadata = {
   title: { default: APP_NAME, template: '%s | nextarter-chakra' },
-  description: '全栈开发工程师，接单，APP开发，网站建设，小程序开发、H5开发',
+  description:
+    'Full Stack Developer, freelance projects, APP development, website construction, mini-program development, H5 development | 全栈开发工程师，接单，APP开发，网站建设，小程序开发、H5开发',
   applicationName: APP_NAME,
   appleWebApp: {
     capable: true,
