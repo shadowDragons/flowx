@@ -1,6 +1,6 @@
 'use client';
 
-import { Box, Flex, HStack, useColorModeValue } from '@chakra-ui/react';
+import { Box, Flex, HStack, Link, useColorModeValue } from '@chakra-ui/react';
 
 import { Logo } from './icons/Logo';
 import ThemeToggle from './ThemeToggle';
@@ -40,7 +40,7 @@ export default function Navbar() {
                   bg: useColorModeValue('black', 'white'),
                 }}
               >
-                项目列表
+                <Link href="/project">项目列表</Link>
               </Box>
               <ThemeToggle />
               <LanguageSelector />

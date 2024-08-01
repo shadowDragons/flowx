@@ -141,14 +141,14 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
             <Box as="p" fontSize={20} marginBottom={3}>
               {item.desc}
             </Box>
-            <Box marginBottom={3}>
+            {/* <Box marginBottom={3}>
               {item.tags.map((tag) => (
                 <Tag colorScheme="teal" marginRight={2} fontSize={20}>
                   {tag}
                 </Tag>
               ))}
-            </Box>
-            <Box marginBottom={3}>
+            </Box> */}
+            {/* <Box marginBottom={3}>
               {item.skills.map((skill) => (
                 <Tooltip label={skill}>
                   <Box as="span" marginRight={2}>
@@ -156,7 +156,7 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
                   </Box>
                 </Tooltip>
               ))}
-            </Box>
+            </Box> */}
             <Box>
               <CustomImageViewer images={item.imgs}>
                 {({ open }) => <TriggerButton open={open} />}
