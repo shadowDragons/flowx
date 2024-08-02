@@ -8,10 +8,10 @@ import {
 } from '@chakra-ui/react';
 import '~/lib/styles/serviceButton.css';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
 
 import { ProductTypeIcon } from './icons/ProductTypeIcon';
 import { fadeInLeft, fadeInRight } from './motion/variants';
-import { useTranslation } from 'react-i18next';
 
 export const staggerTextContainer = {
   initial: {},

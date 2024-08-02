@@ -1,12 +1,11 @@
 'use client';
 
 import { Box, Flex, Image, Text } from '@chakra-ui/react';
-
-import services from '../data/serviceData';
-
-import '~/lib/styles/serviceCard.css';
 import { motion } from 'framer-motion';
 
+import '~/lib/styles/serviceCard.css';
+
+import services from '../data/serviceData';
 import { fadeInUp } from '~/lib/components/motion/variants';
 
 export interface ServiceProps {

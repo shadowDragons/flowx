@@ -1,31 +1,28 @@
+import { ViewIcon } from '@chakra-ui/icons';
 import {
   Box,
   Button,
   Flex,
   HStack,
   Heading,
-  Tag,
   Text,
-  Tooltip,
   useColorModeValue,
   useMediaQuery,
 } from '@chakra-ui/react';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { useTranslation } from 'react-i18next';
+import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
 
+import CustomImageViewer from './ImageViewer';
 import MotionBox from './motion/Box';
 import {
   fadeInLeft,
   fadeInRight,
   staggerTextContainer,
 } from './motion/variants';
+
 import '~/lib/styles/project.scss';
-import SkillIcon from './SkillsIcon';
-
-import { AiOutlineFundProjectionScreen } from 'react-icons/ai';
-import { ViewIcon } from '@chakra-ui/icons';
-
-import CustomImageViewer from './ImageViewer';
-import { useTranslation } from 'react-i18next';
 
 interface Item {
   id: number;
@@ -190,7 +187,7 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
     <Flex marginTop={10} direction={{ base: 'column', md: 'row' }}>
       <Flex flex={3} order={position === 'right' || isMobile ? 1 : 2}>
         <MotionBox variants={fadeInRight}>
-          <img src={item.img} alt="" />
+          <Image src={item.img} alt="" />
         </MotionBox>
       </Flex>
 

@@ -1,24 +1,15 @@
 'use client';
 
-import { Box, Flex, Heading, useColorModeValue } from '@chakra-ui/react';
-import { motion } from 'framer-motion';
-import { AiFillCustomerService } from 'react-icons/ai';
+import { Box, Flex, useColorModeValue } from '@chakra-ui/react';
 
 import '../../i18n';
 import Hero from '~/lib/components/Hero';
-import {
-  fadeInDown,
-  staggerTextContainer,
-} from '~/lib/components/motion/variants';
 import ProductType from '~/lib/components/ProductType';
 import Project from '~/lib/components/Project';
-import Service from '~/lib/components/Service';
 
 import '~/lib/styles/moreButton.css';
-import { useTranslation } from 'react-i18next';
 
 const Home = () => {
-  const { t } = useTranslation();
   return (
     <Flex
       direction="column"

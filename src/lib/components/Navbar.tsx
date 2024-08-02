@@ -1,13 +1,11 @@
 'use client';
 
 import { Box, Flex, HStack, Link, useColorModeValue } from '@chakra-ui/react';
-
-import { Logo } from './icons/Logo';
-import ThemeToggle from './ThemeToggle';
-
-import '~/lib/styles/menu.css';
-import LanguageSelector from './LanguageSelector';
 import { useTranslation } from 'react-i18next';
+
+import LanguageSelector from './LanguageSelector';
+import ThemeToggle from './ThemeToggle';
+import '~/lib/styles/menu.css';
 
 export default function Navbar() {
   const { t } = useTranslation();

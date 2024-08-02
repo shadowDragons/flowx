@@ -1,5 +1,6 @@
 'use client';
 
+import { EmailIcon } from '@chakra-ui/icons';
 import {
   Stack,
   Flex,
@@ -17,9 +18,32 @@ import { QQIcon } from './icons/QQ';
 import '~/lib/styles/contactButton.css';
 import '~/lib/styles/wave.css';
 import '~/lib/styles/hero.css';
-import { fadeInDown, fadeInLeft, staggerContainer } from './motion/variants';
 import { TwitterIcon } from './icons/Twitter';
-import { EmailIcon } from '@chakra-ui/icons';
+import { fadeInDown, fadeInLeft, staggerContainer } from './motion/variants';
+
+// 将 ContactIcon 组件移到 Hero 组件外部
+const ContactIcon = ({
+  className,
+  tooltip,
+  children,
+  onCopy,
+}: {
+  className: string;
+  tooltip: string;
+  children: React.ReactNode;
+  onCopy: (text: string) => void;
+}) => (
+  <Box
+    className={`icon ${className}`}
+    backgroundColor={useColorModeValue('white', 'black')}
+    _hover={{ color: '#fff' }}
+    onClick={() => onCopy(tooltip)}
+    cursor="pointer"
+  >
+    <span className="tooltip">{tooltip}</span>
+    <Box>{children}</Box>
+  </Box>
+);
 
 export default function Hero() {
   const { t } = useTranslation();
@@ -36,27 +60,6 @@ export default function Hero() {
       });
     });
   };
-
-  const ContactIcon = ({
-    className,
-    tooltip,
-    children,
-  }: {
-    className: string;
-    tooltip: string;
-    children: React.ReactNode;
-  }) => (
-    <Box
-      className={`icon ${className}`}
-      backgroundColor={useColorModeValue('white', 'black')}
-      _hover={{ color: '#fff' }}
-      onClick={() => handleCopy(tooltip)}
-      cursor="pointer"
-    >
-      <span className="tooltip">{tooltip}</span>
-      <Box>{children}</Box>
-    </Box>
-  );
 
   return (
     <motion.div
@@ -121,15 +124,24 @@ export default function Hero() {
               direction={{ base: 'column', sm: 'row' }}
             >
               <Box className="contractWrap">
-                <ContactIcon className="qq" tooltip="1735089854">
+                <ContactIcon
+                  className="qq"
+                  tooltip="1735089854"
+                  onCopy={handleCopy}
+                >
                   <QQIcon height={8} width={8} color="currentColor" />
                 </ContactIcon>
-                <ContactIcon className="twitter" tooltip="shadow06368306">
+                <ContactIcon
+                  className="twitter"
+                  tooltip="shadow06368306"
+                  onCopy={handleCopy}
+                >
                   <TwitterIcon height={8} width={8} color="currentColor" />
                 </ContactIcon>
                 <ContactIcon
                   className="email"
                   tooltip="shadowdragon4399@gmail.com"
+                  onCopy={handleCopy}
                 >
                   <EmailIcon height={8} width={8} color="currentColor" />
                 </ContactIcon>

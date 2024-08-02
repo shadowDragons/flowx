@@ -16,11 +16,11 @@ import {
   Text,
   Tooltip,
 } from '@chakra-ui/react';
+import { useTranslation } from 'react-i18next';
 
 import CustomImageViewer from '~/lib/components/ImageViewer';
 import SkillIcon from '~/lib/components/SkillsIcon';
 import 'tdesign-react/dist/tdesign.css';
-import { useTranslation } from 'react-i18next';
 
 interface Item {
   id: number;
