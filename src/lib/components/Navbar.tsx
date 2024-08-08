@@ -20,7 +20,7 @@ export default function Navbar() {
     <Box>
       <Flex h={16} alignItems="center" justifyContent="space-between">
         <Box>
-          <Image w={16} src="logo.png" />
+          <Image w={16} src="/logo.png" />
         </Box>
         <Flex h={16} justifyContent="space-between">
           <HStack spacing={8} alignItems="center">
