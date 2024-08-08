@@ -187,7 +187,7 @@ const Single = ({ position, item }: { position: string; item: Item }) => {
     <Flex marginTop={10} direction={{ base: 'column', md: 'row' }}>
       <Flex flex={3} order={position === 'right' || isMobile ? 1 : 2}>
         <MotionBox variants={fadeInRight}>
-          <Image src={item.img} alt="" />
+          <Image src={item.img} width={800} height={100} alt="" />
         </MotionBox>
       </Flex>
 

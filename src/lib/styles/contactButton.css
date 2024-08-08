@@ -68,6 +68,12 @@
   background-color: #68a5e1;
 }
 
+.contractWrap .tg:hover,
+.contractWrap .tg:hover .tooltip,
+.contractWrap .tg:hover .tooltip::before {
+  background-color: #68a5e1;
+}
+
 .contractWrap .twitter:hover,
 .contractWrap .twitter:hover .tooltip,
 .contractWrap .twitter:hover .tooltip::before {

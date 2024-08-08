@@ -57,8 +57,11 @@ const resources = {
 };
 
 function getDefaultLanguage() {
-  const browserLang = navigator.language || navigator.userLanguage;
-  return browserLang.startsWith('zh') ? 'zh' : 'en';
+  if (typeof window !== 'undefined') {
+    const browserLang = navigator.language || navigator.userLanguage;
+    return browserLang.startsWith('zh') ? 'zh' : 'en';
+  }
+  return 'en'; // 默认返回英语，或者你可以从其他地方获取语言设置
 }
 
 i18n
@@ -68,7 +71,7 @@ i18n
     resources,
     fallbackLng: 'en',
     detection: {
-      order: ['navigator'],
+      order: ['cookie', 'localStorage', 'navigator', 'htmlTag'],
     },
     lng: getDefaultLanguage(),
     interpolation: {

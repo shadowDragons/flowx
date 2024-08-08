@@ -1,6 +1,13 @@
 'use client';
 
-import { Box, Flex, HStack, Link, useColorModeValue } from '@chakra-ui/react';
+import {
+  Box,
+  Flex,
+  HStack,
+  Image,
+  Link,
+  useColorModeValue,
+} from '@chakra-ui/react';
 import { useTranslation } from 'react-i18next';
 
 import LanguageSelector from './LanguageSelector';
@@ -12,15 +19,9 @@ export default function Navbar() {
   return (
     <Box>
       <Flex h={16} alignItems="center" justifyContent="space-between">
-        <HStack alignItems="center">
-          {/* <Box h={40} w={40} borderRadius="50%" overflow="hidden">
-            <Logo
-              height={40}
-              width={40}
-              color={useColorModeValue('black', 'white')}
-            />
-          </Box> */}
-        </HStack>
+        <Box>
+          <Image w={16} src="logo.png" />
+        </Box>
         <Flex h={16} justifyContent="space-between">
           <HStack spacing={8} alignItems="center">
             <HStack as="nav" spacing={4} display={{ base: 'none', md: 'flex' }}>

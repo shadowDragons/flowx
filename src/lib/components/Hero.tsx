@@ -18,6 +18,7 @@ import { QQIcon } from './icons/QQ';
 import '~/lib/styles/contactButton.css';
 import '~/lib/styles/wave.css';
 import '~/lib/styles/hero.css';
+import { TgIcon } from './icons/Tg';
 import { TwitterIcon } from './icons/Twitter';
 import { fadeInDown, fadeInLeft, staggerContainer } from './motion/variants';
 
@@ -144,6 +145,13 @@ export default function Hero() {
                   onCopy={handleCopy}
                 >
                   <EmailIcon height={8} width={8} color="currentColor" />
+                </ContactIcon>
+                <ContactIcon
+                  className="tg"
+                  tooltip="@Ben0x0x"
+                  onCopy={handleCopy}
+                >
+                  <TgIcon height={8} width={8} color="currentColor" />
                 </ContactIcon>
               </Box>
             </Stack>

@@ -13,4 +13,7 @@ module.exports = withPWA({
   eslint: {
     dirs: ['src'],
   },
+  images: {
+    unoptimized: true,
+  },
 });
