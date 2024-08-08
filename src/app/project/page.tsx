@@ -227,7 +227,7 @@ const TriggerButton = ({ open, text }: { open: () => void; text: string }) => (
 const CartItem = ({ item }: { item: Item }) => {
   const { t } = useTranslation();
   return (
-    <Card width={400}>
+    <Card width="100%">
       <CardBody>
         <Image
           src={item.img}
